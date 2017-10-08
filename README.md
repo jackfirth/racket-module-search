@@ -1,2 +1,2 @@
 # racket-module-search
-A Racket library for searching all modules in packages and collections
+A Racket library for searching and filtering all modules in packages and collections
