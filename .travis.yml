@@ -1,0 +1,20 @@
+language: c
+sudo: false
+env:
+  global:
+    - RACKET_DIR=~/racket
+  matrix:
+    - RACKET_VERSION=HEAD
+
+before_install:
+  - git clone https://github.com/greghendershott/travis-racket.git ../travis-racket
+  - cat ../travis-racket/install-racket.sh | bash
+  - export PATH="${RACKET_DIR}/bin:${PATH}"
+  - raco pkg install --auto cover cover-codecov
+
+install:
+  - raco pkg install --auto --name module-search $TRAVIS_BUILD_DIR
+
+script:
+  - raco test -p module-search
+  - raco cover -f codecov -p module-search
