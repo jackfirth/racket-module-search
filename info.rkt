@@ -6,4 +6,9 @@
 (define deps
   '("base"))
 
-(define scribblings '(("scribblings/main.scrbl" () (library) "module-search")))
+(define build-deps
+  '("racket-doc"
+    "scribble-lib"))
+
+(define scribblings
+  '(("scribblings/main.scrbl" () (library) "module-search")))
